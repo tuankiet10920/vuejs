@@ -1,0 +1,27 @@
+<script setup>
+    import ProductComponent from './product.vue';
+    import buttonComponent from './button.vue';
+    let string = 'Hello World!';
+    let a1 = 1;
+    console.log(a1);
+    
+</script>
+
+<template>
+    <buttonComponent :message="string"/>
+    <div class="products">
+        <!-- <ProductComponent/>
+        <ProductComponent/>
+        <ProductComponent/>
+        <ProductComponent/> -->
+    </div>
+</template>
+
+<style scoped>
+    .products{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(calc(100% / 5), 1fr));
+        gap: 20px;
+    }
+</style>

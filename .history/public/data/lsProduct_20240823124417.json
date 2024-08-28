@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "name" : "Donna Born In Roma",
+        "price" : 1000000,
+        "image" : "product-1.webp"
+    },
+    {
+        "id" : 2,
+        "name" : "Frangipani Flower Cologne",
+        "price" : 2000000,
+        "image" : "product-2.webp"
+    },
+    {
+        "id" : 3,
+        "name" : "Glossier You Eau",
+        "price" : 3000000,
+        "image" : "product-3.webp"
+    },
+    {
+        "id" : 4,
+        "name" : "Mini Cheirosa",
+        "price" : 4000000,
+        "image" : "product-4.webp"
+    }
+]
