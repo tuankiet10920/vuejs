@@ -1,0 +1,109 @@
+<template>
+    <div class="form">
+        <h1>Create New Product</h1>
+        <div class="form-group">
+            <label for="name">Name: </label><br>
+            <input type="text" v-model="name" id="name" placeholder="Input name">
+        </div>
+        <div class="form-group">
+            <label for="price">Price: </label><br>
+            <input type="number" v-model="price" id="price" placeholder="Input price">
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label><br>
+            <input ref="fileImage" type="file" name="image" id="image" @change="onFileSelected"
+                placeholder="Input image">
+        </div>
+        <div class="form-group">
+            <label for="qty">Quantity</label><br>
+            <input type="number" v-model="qty" id="qty" value="1" placeholder="Input quantity" min="1">
+        </div>
+        <Button @click="onUpload" class="button-form" />
+    </div>
+</template>
+
+<script>
+import { ref } from 'vue'
+import Button from './button.vue'
+import axios from 'axios'
+
+export default {
+    data() {
+        return {
+            name: 'this is name',
+            price: 3213,
+            qty: 1,
+            selectedFile: null
+        }
+    },
+    methods: {
+        onFileSelected(event) {
+            this.selectedFile = event.target.files[0];
+        },
+        onUpload() {
+            this.name = ""
+            this.price = ""
+            this.qty = 1
+            this.name = ""
+            this.$refs.fileImage.value = ""
+            // console.log(this.selectedFile);
+
+            // const formData = new FormData();
+
+            // formData.append('name', this.name);
+            // formData.append('qty', this.qty);
+            // formData.append('price', this.price);
+            // formData.append('image', this.selectedFile);
+
+            // axios.post('http://localhost/Backend_Vuejs/index.php?action=add', formData, {
+            //     headers: {
+            //         'Content-Type': 'multipart/form-data'
+            //     }
+            // })
+            //     .then(response => {
+            //         console.log('Thêm sản phẩm thành công:', response.data);
+            //     })
+            //     .catch(error => {
+            //         console.error('Lỗi khi thêm sản phẩm:', error);
+            //     });
+        }
+    },
+    components: {
+        Button
+    }
+}
+</script>
+
+<style>
+.form {
+    width: 40%;
+    min-width: 40%;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.form-group {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+
+.form-group input:focus {
+    border: 1px solid #008000;
+}
+
+.button-form {
+    margin-top: 20px;
+    cursor: pointer;
+}
+</style>
